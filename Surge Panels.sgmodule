@@ -1,0 +1,16 @@
+#!name=Profile Reload
+#!desc=Surge 信息面板
+
+
+[Panel]
+Sub_Info = script-name= Sub_Info, update-interval=600
+配置重载 = title=配置重载,content=配置重载,style=info,script-name=配置重载,update-interval=-1
+网络信息 = script-name=网络信息,title=网络信息,content=请刷新,style=info,update-interval=60
+covid19 = script-name=covid19, title=新冠疫情查询, content=请刷新, update-interval=600
+
+
+[Script]
+
+配置重载 = script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/Profile-Reload.js,type=generic
+网络信息 = type=generic,timeout=5,script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/ipcheck.js
+covid19 = type=generic, script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/Covid19.js
