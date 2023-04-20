@@ -1,30 +1,31 @@
-/*
- * 由@fishingworld编写
- * 原脚本地址：https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js
- * 由@Rabbit-Spec修改
- * 更新日期：2022.06.15
- * 版本：1.5
-
-可选参数：授权有效期，后面填入你功能订阅到期的时间。
-----------------------------------------
-*/
-
-let params = getParams($argument)
+/* 参考 */
+/* https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js */
+/* https://raw.githubusercontent.com/smartmimi/conf/master/surge/functionstatus.js */
 
 !(async () => {
+/* 定义图标 */
+let params = getParams($argument)
 /* 时间获取 */
 let traffic = (await httpAPI("/v1/traffic","GET"))
 let dateNow = new Date()
 let dateTime = Math.floor(traffic.startTime*1000)
 let startTime = timeTransform(dateNow,dateTime)
+/* MitM+Rewrite+Scripting状态获取 */
+let mitm_status = (await httpAPI("/v1/features/mitm","GET"));
+let rewrite_status = (await httpAPI("/v1/features/rewrite","GET"));
+let scripting_status = (await httpAPI("/v1/features/scripting","GET"));
 
 if ($trigger == "button") await httpAPI("/v1/profiles/reload");
 
   $done({
-      title:"Surge Pro®",
+      title:"𝗦𝗨𝗥𝗚𝗘 𝗣𝗥𝗢©️",
       content:
-	`启动时长: ${startTime}\n` +
-        `订阅地址: 2023-10-21` ,
+	  `--------------\n`+
+	  `已持续运行: ${startTime}\n`+
+	  `--------------\n`+
+	  订阅地址: 2023-10-21
+	  `--------------\n`+
+	  `MitM:`+icon_status(mitm_status.enabled)+`  Rewrite:`+icon_status(rewrite_status.enabled)+`  Scripting:`+icon_status(scripting_status.enabled),
 		icon: params.icon,
 		"icon-color":params.color
     });
@@ -56,6 +57,13 @@ if(days==0){
 
 }
 
+function icon_status(status){
+  if (status){
+    return "\u2611";
+  } else {
+      return "\u2612"
+    }
+}
 
 function httpAPI(path = "", method = "POST", body = null) {
     return new Promise((resolve) => {
@@ -73,3 +81,4 @@ function getParams(param) {
       .map(([k, v]) => [k, decodeURIComponent(v)])
   );
 }
+
