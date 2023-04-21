@@ -20,11 +20,8 @@ if ($trigger == "button") await httpAPI("/v1/profiles/reload");
   $done({
       title:"𝗦𝗨𝗥𝗚𝗘 𝗣𝗥𝗢©️",
       content:
-	  `--------------\n`+
 	  `已持续运行: ${startTime}\n`+
-	  `--------------\n`+
-	  `订阅地址: 2023-10-21\n`+
-	  `--------------\n`+
+	  `订阅到期: 2023-10-21\n`+
 	  `MitM:`+icon_status(mitm_status.enabled)+`  Rewrite:`+icon_status(rewrite_status.enabled)+`  Scripting:`+icon_status(scripting_status.enabled),
 		icon: params.icon,
 		"icon-color":params.color
