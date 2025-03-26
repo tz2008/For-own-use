@@ -1,2 +1,5 @@
-# 流量监控脚本
+# Auto-Reject-After-30min
+[Script]
 auto-reject-after-30min = type=generic,timeout=60,script-path=https://raw.githubusercontent.com/tz2008/For-own-use/refs/heads/master/auto-reject.js,argument=time=1800&group=𝐘𝐨𝐮𝐓𝐮𝐛𝐞,script-update-interval=0
+[MITM]
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com
