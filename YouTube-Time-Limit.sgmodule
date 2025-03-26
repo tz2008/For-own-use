@@ -1,0 +1,9 @@
+
+#!name=油管时长监控
+#!desc=油管时长监控
+
+[Script]
+youtube-time-limit = type=generic,timeout=60,script-path=https://raw.githubusercontent.com/tz2008/For-own-use/refs/heads/master/youtube-limit.js,argument=time=1800
+[MITM]
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com
+
