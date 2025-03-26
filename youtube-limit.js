@@ -1,6 +1,6 @@
 // 参数说明：time=1800（30分钟，单位：秒）
 const TIME_LIMIT = parseInt($argument.time) || 60;
-const YOUTUBE_DOMAINS = ["googlevideo.com", "youtube.com", "ytimg.com"];
+const YOUTUBE_DOMAINS = ["googlevideo.com", "youtubei.googleapis.com"];
 
 let startTime = 0;
 let isYouTubeActive = false;
