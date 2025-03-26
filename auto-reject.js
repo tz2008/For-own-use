@@ -2,7 +2,7 @@
 // - time=1800（30分钟，单位：秒）
 // - group=PROXY（要监控的 Proxy Group 名称）
 
-const TIME_LIMIT = parseInt($argument.time) || 1800; // 默认30分钟
+const TIME_LIMIT = parseInt($argument.time) || 300; // 默认30分钟
 const TARGET_GROUP = $argument.group || "PROXY"; // 默认监控 PROXY 组
 
 let startTime = Date.now() / 1000; // 记录脚本启动时间（Unix 时间戳，秒）
